@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visit Selma & Felix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+
+</head>
+<body>
+  <header>
+    <h1>This is your account</h1>
+  </header>
+  <main>
+    <section class="profile">
+      <h2>Welcome {{ fname }} {{ sname }}</h2>
+    </section>
+    <section class="list">
+      <h1>Menu</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Page</a></li>
+        <li><a href="mailto:noemia.mccarthy@code.berlin">Contact</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 SF BnB</p>
+  </footer>
+</body>
+</html>
