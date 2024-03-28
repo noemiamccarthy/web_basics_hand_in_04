@@ -5,29 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visit Selma & Felix</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-
 </head>
 <body>
   <header>
-    <h1>About</h1>
+    <nav>
+      <a href="/templates/index.html">Home</a>
+      <a href="/templates/trips.html">Trips</a>
+      <a href="/templates/about.html">About</a>
+      <a href="/templates/register.html">Register</a>
+      <a href="/templates/login.html">Login</a>
+    </nav>
   </header>
   <main>
-    <section class="about">
-      <h2>What is SF BnB?</h2>
-      <p>Selma and Felix moved to Munich. All their friends and family want to visit them. As there is a long list of people wanting to visit, my project aims to help them plan their guests better.
-        The SF B'n'b enables Selma and Felix's friends to find dates when they want to visit. As well as find out more about what activities they can do e.g. skiing or hiking.</p>
+    <section class="hero">
+      <h1>Welcome to Selma & Felix BnB</h1>
+      <h2>your bavarian home away from home</h2>
     </section>
-    <section class="list">
-        <h2>Menu</h2>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="account.html">Create an Account</a></li>
-          <li><a href="mailto:noemia.mccarthy@code.berlin">Contact</a></li>
-        </ul>
+    <div class='container'>
+      <section class="info-groups">
+        <div class="info-group">
+          <img src="/static/img/selma&felix.jpeg" alt="selma&felix image">
+          <h3>What is SF BnB?</h3>
+          <p>Selma and Felix moved to Munich. All their friends and family want to visit them. As there is a long list of people wanting to visit, my project aims to help them plan their guests better.
+            The SF B'n'b enables Selma and Felix's friends to find dates when they want to visit. As well as find out more about what activities they can do e.g. skiing or hiking.</p>
+        </div>
       </section>
+  </div>
   </main>
   <footer>
     <p>&copy; 2024 SF BnB</p>
   </footer>
 </body>
 </html>
+

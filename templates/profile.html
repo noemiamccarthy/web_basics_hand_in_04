@@ -8,20 +8,18 @@
 
 </head>
 <body>
-  <header>
-    <h1>This is your account</h1>
-  </header>
-  <main>
-    <section class="profile">
-      <h2>Welcome {{ fname }} {{ sname }}</h2>
-    </section>
-    <section class="list">
-      <h1>Menu</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Page</a></li>
-        <li><a href="mailto:noemia.mccarthy@code.berlin">Contact</a></li>
-      </ul>
+    <header>
+        <nav>
+          <a href="/templates/index.html">Home</a>
+          <a href="/templates/trips.html">Trips</a>
+          <a href="/templates/about.html">About</a>
+          <a href="/templates/register.html">Register</a>
+          <a href="/templates/login.html">Login</a>
+        </nav>
+      </header>
+    <main>
+    <section class="hero">
+      <h1>Welcome,{{ fname }} {{ sname }} to your SFBnB profile</h1>
     </section>
   </main>
   <footer>

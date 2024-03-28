@@ -10,17 +10,17 @@ def page_not_found(e):
 def home():
     return render_template('index.html')
 
-@app.route('/index.html')
+@app.route('/templates/index.html')
 def index():
     return render_template('index.html')
 
-@app.route('/about.html')
+@app.route('/templates/about.html')
 def about():
     return render_template('about.html')
 
-@app.route('/account.html')
-def account():
-    return render_template('account.html')
+@app.route('/templates/register.html')
+def register():
+    return render_template('register.html')
 
 @app.route('/profile', methods = ["GET"])
 def profile():
