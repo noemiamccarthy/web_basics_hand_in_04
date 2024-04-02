@@ -17,16 +17,18 @@
     </nav>
   </header>
   <main>
-    <section class="hero">
-      <h1>Register your account and start booking trips!</h1>
-    </section>
-<form action="/profile" method="GET">
-    <label for="fname">First Name:</label>
-    <input type="text" id="fname" name="fname" required>
-    <label for="sname">Surname:</label>
-    <input type="text" id="sname" name="sname" required>
-    <button type="submit">Go to Profile</button>
-  </form>
+      <section class="hero">
+        <h1>Register your account and start booking trips!</h1>
+      </section>
+        <form action="/register" method="get">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br><br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required><br><br>
+          <button type="submit">Register</button>
+        </form>
   </main>
   <footer>
     <p>&copy; 2024 SF BnB</p>
