@@ -16,19 +16,19 @@ def page_not_found(e):
 def home():
     return render_template('index.html')
 
-@app.route('/templates/index.html')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
-@app.route('/templates/about.html')
+@app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/templates/trips.html')
+@app.route('/trips')
 def trips():
     return render_template('trips.html')
 
-@app.route('/register.html', methods=['GET', 'POST'])  # Allow both GET and POST requests
+@app.route('/register', methods=['GET', 'POST'])  # Allow both GET and POST requests
 def register():
     if request.method == 'POST':
         username = request.args.get('username')  # Access form data using request.form
