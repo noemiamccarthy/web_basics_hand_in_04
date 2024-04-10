@@ -73,7 +73,7 @@ def get_connection():
 #             cursorObj = con.commit()
 #             return render_template('profile.html', username=username, email=email, password=password)
         
-@app.route('/templates/profile.html', methods=['POST'])
+@app.route('/profile', methods=['POST'])
 def profile():
     if request.method=='POST':
         username = request.args.get('username')
