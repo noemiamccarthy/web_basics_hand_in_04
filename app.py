@@ -248,7 +248,9 @@ def downvotereview(reviewid):
 #   return render_template('login.html',title='Login', form=form)
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True)
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=8080)
     username = request.form.get("username")
     email = request.form.get("email")
     password = request.form.get("password")
