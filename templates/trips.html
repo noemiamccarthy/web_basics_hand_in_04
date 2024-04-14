@@ -10,10 +10,9 @@
   <header>
     <nav>
       <a href="/index">Home</a>
-      <a href="/trips">Trips</a>
+      <a href="/trips">Reviews</a>
       <a href="/about">About</a>
-      <a href="/register">Register</a>
-      <a href="/login">Login</a>
+      <a href="/register">Login</a>
     </nav>
   </header>
   <main>
@@ -40,6 +39,77 @@
         </div>
       </section>
   </div>
+  <section class="hero">
+    <div class='container'>
+      <h1>Let others know how your trip was by leaving a review</h1>
+    <!-- <div style="margin-top: 24px;" class="reviews"> -->
+      <form action="/reviews" method="post">
+        <div class ='row'>
+          <div class="col-25">
+            <label for="name">Guest name(s)</label>
+          </div>
+          <div class="col-75">
+          <input  name="name" id="name" type="text" placeholder="Name"/>
+          </div>
+        </div>
+        <div class ='row'>
+          <div class="col-25">
+            <label for="description">Your review</label>
+          </div>
+          <div class="col-75">
+          <input  name="description" id="description" type="text" placeholder="How was your trip?"/>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-25">
+            <label for="rating">Rate your trip from 1 - 5 ⭐</label>
+            </div>
+            <div class="col-75">
+              <select id="rating" name="rating">
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+    </div>
+    <div class='container'>
+      <h1>Here are some of the latest reviews</h1>
+    <table>
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Review</th>
+              <th>Rating</th>
+          </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ review[1] }}</td>
+            <td>{{ review[2] }}</td>
+            <td>{{ int_to_stars(review[3]) }} ({{ review[4] }})</td>
+            <td><form action="/reviews/{{ review[0] }}/upvote" method="post">
+              <button type="submit">👍</button>
+            </form></td>
+            <td><form action="/reviews/{{ review[0] }}/downvote" method="post">
+              <button type="submit">👎</button>
+            </form></td>
+            <td><form action="/reviews/{{ review[0] }}/delete" method="post">
+              <button type="submit">Delete</button>
+            </form></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+    </div>
+  </section>
   </main>
   <footer>
     <p>&copy; 2024 SF BnB</p>
