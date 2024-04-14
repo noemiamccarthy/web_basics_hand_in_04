@@ -1,4 +1,4 @@
 Flask
 pandas
 mysql-connector-python
-waitress
+Gunicorn
