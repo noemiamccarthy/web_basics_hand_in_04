@@ -1,47 +1,71 @@
+/* Reset default styles */
+* {
+  margin: 2;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 header {
-  background-color: #f1f1f1;
+  background-color: ##00A878;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
 }
 
 nav {
-  display: flex; /* Maintains flexbox for alignment */
+  display: flex;
+  color: #00A878;
 }
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: #0B0500;
   padding: 5px 10px;
 }
 
 nav a:hover {
-  background-color: #ddd;
+  background-color: #F3C178;
 }
 
+/* Hero section */
 .hero {
-    text-align: center;
+  text-align: center;
 }
-  
+
 .hero h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p{
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Container styles */
+.container, .large-container {
+  background: white;
+  margin: 0 auto;
 }
 
 .container {
-  /* border-radius: 5px; */
-  background: white;
-  margin: 0 auto;
-  /* padding: 25%; */
   width: 75%;
 }
-  
+
+.large-container {
+  width: 90%;
+}
+
+/* Info groups */
 .info-groups {
   display: flex;
   justify-content: space-around;
@@ -54,59 +78,38 @@ nav a:hover {
 }
 
 .info-group {
-  width: 32%;  /* Adjust width slightly to account for spacing */
+  width: 32%;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .info-group img {
-  width: 100%; /* Ensures images fill the available width */
+  width: 100%;
   margin-bottom: 10px;
 }
 
 .info-group h3 {
-  font-size: 1.2em;
+  font-size: 2em;
   margin-bottom: 5px;
 }
 
-h1{
-  font-size: 2em;
-  margin-bottom: 0;
-}
-
-h2{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-h3{
-  font-size: 2em;
-  margin-bottom: 0;
-}
-
-main{
-  padding: 20px;
-}
-  
-section{
-  margin-bottom: 20px;
-}
-
-.reviews{
-  width: auto;
-}
-  
-form{
+/* Form styles */
+form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-label{
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-  }
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
 
   input[type=text], select, textarea{
     width: 100%;
@@ -127,82 +130,61 @@ label{
     cursor: pointer;
     float: right;
   }
-  
-  /* .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-        
-      
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px; */
+
+/* List styles */
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 5px;
+}
+
+/* Other styles */
+
+a {
+  color: #000000;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  height: 70px;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid ##FE5E41
+  background-color #000000 white;
+}
+
+footer { 
+  color: #000000;
+  text-align: center;
+  padding: 10px;
+  position:static
+  bottom 0;
+  width: 100%;
+}
 
 
-  .about p, .list ul, .contact p {
-    line-height: 1.5;
+/* Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
   }
+  h2 {
+    font-size: 1.3em;
+  }
+  .about p, .interests ul, .contact p {
+    font-size: 14px;
+  }
+}
 
-  
-  
-  .list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+@media (max-width: 480px) {
+  section {
+    margin-bottom: 10px;
   }
-
-  button {
-    font-size: 16px;
-  }
-  
-  .list li {
-    margin-bottom: 5px;
-  }
-  
-  a {
-    color: #000000;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  
-
-  th, td {
-    height: 70px;
-    text-align: left;
-    padding: 15px;
-    border-bottom: 1px solid #ddd
-    background-color #000000 white;
-
-  }
-
-  footer {
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  /* Responsiveness */
-  
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 1.8em;
-    }
-    h2 {
-      font-size: 1.3em;
-    }
-    .about p, .interests ul, .contact p {
-      font-size: 14px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    section {
-      margin-bottom: 10px;
-    }
-  }
-
+}

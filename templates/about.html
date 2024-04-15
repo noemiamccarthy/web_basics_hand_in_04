@@ -4,36 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visit Selma & Felix</title>
+  <link href="/static/img/favicon.ico" rel="icon" type="image/x-icon">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/index">Home</a>
-      <a href="/trips">Reviews</a>
+      <a class="active" href="/index"><i class="fa fa-fw fa-home"></i> Home</a>
+      <a href="/trips">Trip Reviews</a>
       <a href="/about">About</a>
-      <a href="/register">Login</a>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
     </nav>
   </header>
   <main>
     <section class="hero">
-      <h1>Welcome to Selma & Felix BnB</h1>
-      <h2>your bavarian home away from home</h2>
+      <h1>What is SF BnB?</h1>
     </section>
     <div class='container'>
       <section class="info-groups">
         <div class="info-group">
           <img src="/static/img/selma&felix.jpeg" alt="selma&felix image">
-          <h3>What is SF BnB?</h3>
         </div>
       </section>
-      <p>Selma and Felix moved to Munich. All their friends and family want to visit them. As there is a long list of people wanting to visit, my project aims to help them plan their guests better.
-        The SF B'n'b enables Selma and Felix's friends to find dates when they want to visit. As well as find out more about what activities they can do e.g. skiing or hiking.</p>
+      <p>Selma and Felix moved to Munich. All their friends and family want to visit them. As there is a long list of people wanting to visit, my project aimed to help them plan their guests better.
+        The SF B'n'b enables Selma and Felix's friends to find dates when they want to visit. As well as find out more about what activities they can do e.g. skiing or hiking. However, due to 
+        time and skill constraints, I was only able to build a web application that meets all the assessment requirements, therefore there is no authenticated registration or login. </p>
   </div>
   </main>
+  <br>
   <footer>
-    <p>&copy; 2024 SF BnB</p>
+    <p>&copy; Spring 2024 | Noemia McCarthy | SE19 & SE01 | Alternative Combination </p>
   </footer>
-</body>
+</br>
+  </body>
 </html>
 

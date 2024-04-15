@@ -4,38 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visit Selma & Felix</title>
+  <link href="/static/img/favicon.ico" rel="icon" type="image/x-icon">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/index">Home</a>
-      <a href="/trips">Reviews</a>
+      <a class="active" href="/index"><i class="fa fa-fw fa-home"></i> Home</a>
+      <a href="/trips">Trip Reviews</a>
       <a href="/about">About</a>
-      <a href="/register">Login</a>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
     </nav>
   </header>
   <main>
     <section class="hero">
-      <h1>Welcome to Selma & Felix BnB</h1>
-      <h2>your bavarian home away from home</h2>
+      <h1>Discover Selma & Felix</h1>
+      <h2><em>what are guests saying about their trips?</em></h2>
     </section>
     <div class='container'>
       <section class="info-groups">
         <div class="info-group">
+          <img src="/static/img/hiking 1.jpeg" alt="skiing image">
+        </div>
+        <div class="info-group">
           <img src="/static/img/skiing.jpg" alt="skiing image">
-          <h3>Skiing</h3>
-          <p>Bavaria's slopes beckon: carve fresh powder on legendary ski runs!</p>
         </div>
         <div class="info-group">
           <img src="/static/img/swimming.jpg" alt="swimming image">
-          <h3>Swimming</h3>
-          <p>Dive into pristine alpine lakes: Bavaria's refreshing swimming awaits!</p>
+        </div>
+        <div class="info-group">
+          <img src="/static/img/skiing 1.jpeg" alt="skiing image">
         </div>
         <div class="info-group">
           <img src="/static/img/hiking.jpg" alt="hiking image">
-          <h3>Hiking</h3>
-          <p>Hike through breathtaking scenery: explore Bavarian mountains on unforgettable trails!</p>
         </div>
       </section>
   </div>
@@ -74,11 +77,16 @@
               </select>
             </div>
           </div>
-          <button type="submit">Send</button>
+          <div class="row">
+            <div class="col-25">
+          <button type="button">Submit Review</button>
+            </div>
+          </div>
         </div>
       </form>
     </div>
     </div>
+    <br>
     <div class='container'>
       <h1>Here are some of the latest reviews</h1>
     <table>
@@ -87,6 +95,9 @@
               <th>Name</th>
               <th>Review</th>
               <th>Rating</th>
+              <th>Upvote</th>
+              <th>Downvote</th>
+              <th>Delete Comment</th>
           </tr>
       </thead>
       <tbody>
@@ -110,10 +121,36 @@
   </table>
     </div>
   </section>
+</br>
   </main>
+  <br>
   <footer>
-    <p>&copy; 2024 SF BnB</p>
+    <p>&copy; Spring 2024 | Noemia McCarthy | SE19 & SE01 | Alternative Combination </p>
   </footer>
+</br>
+<script>
+  const carousel = document.querySelector('.carousel-inner');
+  const prevButton = document.getElementById('btn-prev');
+  const nextButton = document.getElementById('btn-next');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function prevSlide() {
+      currentIndex = (currentIndex - 1 + 3) % 3;
+      showSlide(currentIndex);
+  }
+
+  function nextSlide() {
+      currentIndex = (currentIndex + 1) % 3;
+      showSlide(currentIndex);
+  }
+
+  prevButton.addEventListener('click', prevSlide);
+  nextButton.addEventListener('click', nextSlide);
+</script>
 </body>
 </html>
 

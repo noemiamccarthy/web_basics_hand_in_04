@@ -1,16 +1,26 @@
 from crypt import methods
 from logging import Handler
 import symtable
-from flask import Flask, render_template, url_for, flash, request, redirect, Response
+from flask import Flask, render_template, make_response, url_for, flash, request, redirect, Response
 import sqlite3 
 from sqlite3 import Error
-import models as handler
 
 app = Flask(__name__)
+
+def get_connection():
+    """Establishes a connection to the database."""
+    try:
+        con = sqlite3.connect('database.db')
+        return con
+    except Error as error:
+        print(f"Error connecting to database: {error}")
+        return None
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+#### html routes
 
 @app.route('/')
 def home():
@@ -23,17 +33,6 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-# @app.route('/trips')
-# def trips():
-#     conn = sqlite3.connect('database.db')
-#     c = conn.cursor()
-#     c.execute('SELECT * FROM reviews')
-#     reviews = c.fetchall()
-#     conn.close()
-#     return render_template('trips.html', reviews=reviews)
-#     # reviews = getreviews()
-#     # return render_template('trips.html', reviews=reviews)
 
 @app.route('/trips')
 def trips():
@@ -50,9 +49,12 @@ def trips():
 
 
 
-@app.route('/register', methods=['GET', 'POST'])  # Allow both GET and POST requests
+
+### logic routes
+
+@app.route('/register', methods=['GET','POST'])  
 def register():
-    if request.method == 'POST':
+    if request.method== "POST":
         username = request.form.get('username')  # Access form data using request.form
         email = request.form.get('email')
         password = request.form.get('password')
@@ -63,7 +65,13 @@ def register():
                 cursor.execute("INSERT INTO accounts (username, email, password) VALUES (?, ?, ?)", (username, email, password))
                 con.commit()
                 print("User (dummy) logged in successfully!")
-                return render_template('profile.html', username=username, email=email)  # Pass username and email for display (consider hiding password)
+                newid = cursor.lastrowid # the new number from insert, the database generates the new number automatically
+
+                # How to do cookies in flask https://stackoverflow.com/questions/46661083/how-to-set-cookie-in-python-flask
+                response = make_response(redirect("/profile"))
+                response.set_cookie("profile", str(newid))
+                
+                return response
             else:
                 # Handle connection error (e.g., display error message)
                 pass
@@ -72,27 +80,81 @@ def register():
             # Handle database error (e.g., display error message)
             pass
     else:
-        return render_template('register.html')
-    
-def get_connection():
-    """Establishes a connection to the database."""
-    try:
-        con = sqlite3.connect('database.db')
-        return con
-    except Error as error:
-        print(f"Error connecting to database: {error}")
-        return None
+        return render_template("register.html")
 
-@app.route('/profile', methods=['POST'])
-def profile():
-    if request.method=='POST':
-        username = request.args.get('username')
-        password = request.args.get('password')
-        handler.insertUser(username, password)
-        users = handler.retrieveUsers()
-        return render_template('profile.html', users=users)
+@app.route('/login', methods=['GET','POST'])  
+def login():
+    if request.method== "POST":
+        email = request.form.get('email')
+        password = request.form.get('password')
+        try:
+            con = get_connection()
+            if con:
+                cursor = con.cursor()
+                cursor.execute("SELECT id FROM accounts WHERE email= (?) AND password= (?)", (email, password))
+                con.commit()
+                user=cursor.fetchone()
+                print("User selected successfully")
+                
+                id=user[0]
+                # How to do cookies in flask https://stackoverflow.com/questions/46661083/how-to-set-cookie-in-python-flask
+                response = make_response(redirect("/profile"))
+                response.set_cookie("profile", str(id))
+                
+                return response
+            else:
+                # Handle connection error (e.g., display error message)
+                pass
+        except Error as error:
+            print(f"Error logging user: {error}")
+            # Handle database error (e.g., display error message)
+            pass
     else:
-        return render_template('index.html')
+        return render_template("login.html")
+
+@app.route('/profile', methods=['GET'])
+def profile():
+        profileid = request.cookies.get("profile")
+        try:
+            con = get_connection()
+            if con:
+                cursor = con.cursor()
+                cursor.execute("SELECT username FROM accounts WHERE id =" + profileid)
+                con.commit()
+                user=cursor.fetchone()
+                print("User selected successfully")
+
+                username=user[0]
+                return render_template("profile.html", username=username)
+            else:
+                # Handle connection error (e.g., display error message)
+                pass
+        except Error as error:
+            print(f"Error logging user: {error}")
+            # Handle database error (e.g., display error message)
+            pass
+
+@app.route('/profile/<id>', methods=['GET'])
+def profileid(id):
+        profileid = id
+        try:
+            con = get_connection()
+            if con:
+                cursor = con.cursor()
+                cursor.execute("SELECT username FROM accounts WHERE id =" + profileid)
+                con.commit()
+                user=cursor.fetchone()
+                print("User selected successfully")
+
+                username=user[0]
+                return render_template("profile.html", username=username)
+            else:
+                # Handle connection error (e.g., display error message)
+                pass
+        except Error as error:
+            print(f"Error logging user: {error}")
+            # Handle database error (e.g., display error message)
+            pass
         
 @app.route('/reviews', methods=['GET'])
 def getreviews():
@@ -198,7 +260,7 @@ def downvotereview(reviewid):
             pass        
 
 if __name__ == "__main__":
-    #app.run(debug=True)
+    app.run(debug=True)
     username = request.form.get("username")
     email = request.form.get("email")
     password = request.form.get("password")
