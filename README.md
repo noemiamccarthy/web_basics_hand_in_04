@@ -6,7 +6,7 @@ Airbnb-like Web Application
 
 This is a university project for a web application built with Python, Flask, and SQLite3. The main goal was to create an Airbnb-like experience, focusing on meeting specific assessment requirements rather than implementing user authentication and login features.
 
-## Project Requirements Met
+## Project Requirements 
 
 - **HTML Pages**: The project includes at least 3 HTML pages that are linked to each other.
 - **CSS Styling**: All pages are styled using CSS rules.
@@ -20,13 +20,6 @@ This is a university project for a web application built with Python, Flask, and
 - **Error-Free**: The application works without errors.
 - **Code Quality**: The code is clean and follows best practices.
 
-## GitHub Repository
-
-[Link to GitHub Repository](https://github.com/noemiamccarthy/web_basics_hand_in_04)
-
 ## Deployment
 
 [Link to Deployed Website]() (To be added)
-
----
-Feel free to customize this README to include additional details or improve its presentation based on your needs!
