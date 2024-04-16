@@ -4,7 +4,7 @@ Airbnb-like Web Application
 
 ## Description
 
-This is a university project for a web application built with Python, Flask, and SQLite3. The main goal was to create an Airbnb-like experience, focusing on meeting specific assessment requirements rather than implementing user authentication and login features.
+This is a university project for a web application built with Python, Flask, and SQLite3. The main goal was to create an Airbnb-like experience, focusing on meeting specific assessment requirements for SE19 & SE01. 
 
 ## The current project now does the following: 
 
