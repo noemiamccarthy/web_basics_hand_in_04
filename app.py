@@ -260,7 +260,7 @@ def downvotereview(reviewid):
             pass        
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
     username = request.form.get("username")
     email = request.form.get("email")
     password = request.form.get("password")
