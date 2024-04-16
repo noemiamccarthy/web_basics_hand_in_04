@@ -58,7 +58,7 @@ p{
 }
 
 .container {
-  width: 75%;
+  width: 80%;
 }
 
 .large-container {
@@ -80,7 +80,7 @@ p{
 .info-group {
   width: 32%;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: -10px;
 }
 
 .info-group img {
