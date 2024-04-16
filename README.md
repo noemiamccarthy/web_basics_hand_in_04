@@ -4,9 +4,22 @@ Airbnb-like Web Application
 
 ## Description
 
-This is a university project for a web application built with Python, Flask, and SQLite3. The main goal was to create an Airbnb-like experience, focusing on meeting specific assessment requirements rather than implementing user authentication and login features.
+This is a university project for a web application built with Python, Flask, and SQLite3. The main goal was to create an Airbnb-like experience, focusing on meeting specific assessment requirements for SE19 & SE01. 
 
-## Project Requirements Met
+## The current project now does the following: 
+
+- Allows anyone to **leave a review** - which is entered into the database and displayed in the html table below after submitted.
+- Allows anyone to **upvote or downvote** the recent reveiws, which are counted and displayed next to the rating in negative or positive amounts of up/downvotes.
+- Allows anyone to **delete reviews**
+
+- A **simple registration** enables users to register a profile,and login. The way the database pulls the correct users is by **saving a cookie as the user ID** during registration or login. When the profile page is rendered, the username corresponding with the respective ID stored in the cookie is displayed in the html. Cookies were chosen as I found it easy to access them on client & server.
+
+## Technologies Used
+
+For this project I chose to work with language Python and use the Flask framework. As I had knowledge of this from the first Foundation Semester I participated in with Adam Roe, in 2019. I found it easier to recall this knowledge instead of using Javascript and the Express framework, as presecribed in the class. 
+For my database I chose to use SQLite3 as I had also used it during my first attempt at SE19 & SE01 in 2019. 
+
+## Project Requirements 
 
 - **HTML Pages**: The project includes at least 3 HTML pages that are linked to each other.
 - **CSS Styling**: All pages are styled using CSS rules.
@@ -20,13 +33,6 @@ This is a university project for a web application built with Python, Flask, and
 - **Error-Free**: The application works without errors.
 - **Code Quality**: The code is clean and follows best practices.
 
-## GitHub Repository
-
-[Link to GitHub Repository](https://github.com/noemiamccarthy/web_basics_hand_in_04)
-
 ## Deployment
 
-[Link to Deployed Website]() (To be added)
-
----
-Feel free to customize this README to include additional details or improve its presentation based on your needs!
+[Link to Deployed Website](https://web-basics-hand-in-04.onrender.com) 
